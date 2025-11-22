@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Article</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f8fafc; margin: 0; padding: 2rem; }
+        .card { background: #fff; max-width: 720px; margin: auto; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1); }
+        h1 { margin-top: 0; }
+        .meta { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+        .abstract { margin-top: 1.5rem; line-height: 1.6; }
+        .actions { margin-top: 2rem; display: flex; gap: 1rem; }
+        a, button { padding: 0.6rem 1.1rem; border-radius: 6px; text-decoration: none; display: inline-block; }
+        .back { background: #e2e8f0; color: #0f172a; }
+        .pdf { background: #2563eb; color: #fff; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>{{ article.title }}</h1>
+        <div class="meta">By {{ article.author }} • {{ article.created_at_display }}</div>
+        <div class="meta">Status: {% if article.approved %}Approved{% else %}Pending{% endif %}</div>
+        <div class="abstract">
+            <h2>Abstract</h2>
+            <p>{{ article.abstract }}</p>
+        </div>
+        <div class="abstract" style="margin-top: 2rem;">
+            <h2>Article Body</h2>
+            {% if article.body %}
+            {% for paragraph in article.body.split('\n\n') %}
+            <p>{{ paragraph }}</p>
+            {% endfor %}
+            {% else %}
+            <p>No body text provided.</p>
+            {% endif %}
+        </div>
+        <div class="actions">
+            <a class="back" href="/admin/dashboard">Back to Dashboard</a>
+            <a class="pdf" href="{{ article.pdf_url }}" target="_blank">Open PDF</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Article</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f8fafc; margin: 0; padding: 2rem; }
+        form { background: #fff; max-width: 720px; margin: auto; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1); }
+        h1 { margin-top: 0; }
+        label { display: block; margin-top: 1rem; font-weight: 600; }
+        input, textarea { width: 100%; padding: 0.75rem; margin-top: 0.4rem; border-radius: 8px; border: 1px solid #cbd5f5; font-size: 1rem; }
+        textarea { min-height: 140px; }
+        .actions { margin-top: 1.5rem; display: flex; gap: 1rem; }
+        button, a { padding: 0.75rem 1.25rem; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; }
+        .primary { background: #2563eb; color: #fff; }
+        .secondary { background: #e2e8f0; color: #0f172a; }
+    </style>
+</head>
+<body>
+    <form action="/admin/edit-article" method="post">
+        <h1>Edit Article</h1>
+        <input type="hidden" name="article_id" value="{{ article.id }}">
+
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" value="{{ article.title }}" required>
+
+        <label for="author">Author</label>
+        <input type="text" id="author" name="author" value="{{ article.author }}" required>
+
+        <label for="abstract">Abstract</label>
+        <textarea id="abstract" name="abstract" required>{{ article.abstract }}</textarea>
+
+        <label for="body">Article Body</label>
+        <textarea id="body" name="body" rows="10" required>{{ article.body }}</textarea>
+
+        <div class="actions">
+            <button class="primary" type="submit">Save Changes</button>
+            <a class="secondary" href="/admin/dashboard">Cancel</a>
+        </div>
+    </form>
+</body>
+</html>

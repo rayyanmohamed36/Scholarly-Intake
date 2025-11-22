@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pymongo
+dnspython
+python-dotenv
+jinja2
+bcrypt
+itsdangerous
+python-multipart
