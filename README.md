@@ -1,7 +1,7 @@
-# Article Manager (Public)
+# Scholarly Intake
 
 ## Introduction
-Article Manager streamlines how universities, research labs, and student-run journals collect scholarly work. Instead of forwarding PDFs through email threads or juggling shared drives, contributors upload their manuscripts through a guided form while admins evaluate every submission inside a single dashboard. MongoDB Atlas + GridFS keeps metadata and large PDFs together, so reviewers can approve or reject drafts with one click and readers can download the final versions straight from the platform. Whether you are launching a lightweight publishing pipeline, building an internal knowledge base, or prototyping a submission portal for conferences, this repo gives you an opinionated, secure starting point that runs anywhere FastAPI and MongoDB are available.
+Scholarly Intake streamlines how universities, research labs, and student-run journals collect scholarly work. Instead of forwarding PDFs through email threads or juggling shared drives, contributors upload their manuscripts through a guided form while admins evaluate every submission inside a single dashboard. MongoDB Atlas + GridFS keeps metadata and large PDFs together, so reviewers can approve or reject drafts with one click and readers can download the final versions straight from the platform. Whether you are launching a lightweight publishing pipeline, building an internal knowledge base, or prototyping a submission portal for conferences, this repo gives you an opinionated, secure starting point that runs anywhere FastAPI and MongoDB are available.
 
 A FastAPI-powered content pipeline for collecting, reviewing, and publishing academic articles. This public-friendly build connects to MongoDB Atlas, stores PDFs in GridFS, and exposes both a public upload form and password-protected admin tools for screening submissions before they are made available to readers.
 
@@ -38,7 +38,7 @@ README.md             # Project documentation (this file)
 1. **Clone & Install**
    ```bash
    git clone <repo-url>
-   cd Article\ Manager-public
+   cd Scholarly\ Intake-public
    python3 -m venv .venv && source .venv/bin/activate
    pip install -r requirements.txt
    ```
